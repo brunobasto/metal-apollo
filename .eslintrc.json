@@ -1,0 +1,43 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest": true,
+		"node": true
+	},
+	"extends": ["eslint:recommended", "liferay"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"allowImportExportEverywhere": true,
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		},
+		"ecmaVersion": 2017,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react"
+	],
+	"globals": {
+		"alert": true,
+		"confirm": true
+	},
+	"rules": {
+		"react/jsx-uses-vars": 2,
+		"require-jsdoc": 0,
+		"brace-style": ["error", "stroustrup"],
+		"lines-around-comment": ["error", {
+			"afterBlockComment": false,
+			"afterLineComment": true,
+			"beforeBlockComment": false,
+			"beforeLineComment": false
+		}],
+		"padding-line-between-statements": [
+			"error",
+			{ "blankLine": "always", "prev": "*", "next": "return" },
+			{ "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+			{ "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+		]
+	}
+}

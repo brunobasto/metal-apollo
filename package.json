@@ -1,0 +1,102 @@
+{
+  "name": "metal-apollo",
+  "version": "0.0.1",
+  "description": "Metal data container for Apollo Client",
+  "main": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "esnext:main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "brunobasto/metal-apollo"
+  },
+  "keywords": [
+    "ecmascript",
+    "es2015",
+    "graphql",
+    "javascript",
+    "jsnext",
+    "metal",
+    "metal.js",
+    "npm",
+    "react",
+    "relay"
+  ],
+  "author": "Bruno Basto <b.basto@gmail.com>",
+  "babel": {
+    "plugins": [
+      "transform-class-properties"
+    ],
+    "presets": [
+      "metal-jsx",
+      "env",
+      "stage-2"
+    ]
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "apollo-client": "^2.0.3",
+    "metal-jsx": "^2.16.3",
+    "metal-state": "^2.16.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "checkFormat": "npm run prettier -- --list-different",
+    "compile": "babel -d lib/ src/ -s --ignore src/__tests__",
+    "coveralls": "node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
+    "format": "npm run prettier -- --write",
+    "jest": "jest",
+    "lint": "eslint src/*.js",
+    "precommit": "lint-staged",
+    "prepublish": "npm run compile",
+    "prettier": "prettier-eslint src/*.js src/**/*.js",
+    "test": "npm run build && npm run jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov"
+    ],
+    "snapshotSerializers": [
+      "metal-jest-serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "fixtures"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-node-env-inline": "^0.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-metal": "4.1.0",
+    "babel-preset-metal-jsx": "0.0.3",
+    "babel-preset-stage-2": "6.24.1",
+    "coveralls": "^3.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint": "^4.10.0",
+    "eslint-config-liferay": "^2.0.8",
+    "eslint-plugin-react": "^7.4.0",
+    "husky": "^0.14.2",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.0",
+    "metal-jest-serializer": "^1.0.1",
+    "prettier-eslint-cli": "^4.3.2",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "fbjs": "^0.8.16",
+    "hoist-non-react-statics": "^2.3.1",
+    "invariant": "^2.2.2",
+    "lodash": "^4.17.4",
+    "object-assign": "^4.1.1"
+  }
+}
