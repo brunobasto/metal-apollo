@@ -2,7 +2,7 @@
   "name": "metal-apollo",
   "version": "0.0.1",
   "description": "Metal data container for Apollo Client",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "esnext:main": "src/index.js",
   "repository": {
@@ -39,7 +39,6 @@
     "metal-state": "^2.16.2"
   },
   "scripts": {
-    "build": "webpack",
     "checkFormat": "npm run prettier -- --list-different",
     "compile": "babel -d lib/ src/ -s --ignore src/__tests__",
     "coveralls": "node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
@@ -64,6 +63,10 @@
       "fixtures"
     ]
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "lint-staged": {
     "*.js": [
       "prettier-eslint --write",
@@ -89,8 +92,7 @@
     "jest": "^20.0.4",
     "lint-staged": "^4.0.0",
     "metal-jest-serializer": "^1.0.1",
-    "prettier-eslint-cli": "^4.3.2",
-    "webpack": "^3.0.0"
+    "prettier-eslint-cli": "^4.3.2"
   },
   "dependencies": {
     "fbjs": "^0.8.16",
