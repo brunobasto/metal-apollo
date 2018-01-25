@@ -496,7 +496,7 @@ export default function graphql(document, operationOptions) {
 				this.shouldRender = false;
 
 				if (!shouldRender) {
-					return this.renderedElement;
+					return <WrappedComponent {...this.props} />;
 				}
 
 				const data = this.dataForChild();
