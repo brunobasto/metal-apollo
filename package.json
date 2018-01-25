@@ -33,11 +33,6 @@
     ]
   },
   "license": "MIT",
-  "peerDependencies": {
-    "apollo-client": "^2.0.3",
-    "metal-jsx": "^2.16.3",
-    "metal-state": "^2.16.2"
-  },
   "scripts": {
     "checkFormat": "npm run prettier -- --list-different",
     "compile": "babel -d lib/ src/ -s --ignore src/__tests__",
@@ -99,6 +94,13 @@
     "hoist-non-react-statics": "^2.3.1",
     "invariant": "^2.2.2",
     "lodash": "^4.17.4",
+    "metal-jsx": "^2.16.3",
+    "metal-state": "^2.16.2",
     "object-assign": "^4.1.1"
+  },
+  "peerDependencies": {
+    "apollo-client": "^2.0.3",
+    "metal-jsx": "^2.16.3",
+    "metal-state": "^2.16.2"
   }
 }

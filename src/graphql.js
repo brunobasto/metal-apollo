@@ -103,6 +103,8 @@ export default function graphql(document, operationOptions) {
 				this.unsubscribeFromQuery();
 				this.updateQuery(props);
 				this.subscribeToQuery();
+
+				this.shouldRender = true;
 			}
 
 			disposed() {
@@ -367,6 +369,7 @@ export default function graphql(document, operationOptions) {
 			}
 
 			forceRenderChildren() {
+				this.shouldRender = true;
 				if (this.hasMounted) {
 					this.forceUpdate();
 				}
@@ -488,13 +491,23 @@ export default function graphql(document, operationOptions) {
 
 				this.maybeCreateQuery();
 
-				const {props} = this;
+				const {props, shouldRender} = this;
+
+				this.shouldRender = false;
+
+				if (!shouldRender) {
+					return this.renderedElement;
+				}
 
 				const data = this.dataForChild();
 				const clientProps = this.calculateResultProps(data);
 				const mergedPropsAndData = assign({}, props, clientProps);
 
-				return <WrappedComponent {...mergedPropsAndData} />;
+				this.renderedElement = (
+					<WrappedComponent {...mergedPropsAndData} />
+				);
+
+				return this.renderedElement;
 			}
 		}
 
