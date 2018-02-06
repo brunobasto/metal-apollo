@@ -42,7 +42,7 @@ export default function graphql(document, operationOptions) {
 		alias = 'Apollo',
 	} = operationOptions;
 
-	const mapPropsToOptions = props => {
+	const mapPropsToOptions = (props, context) => {
 		if (typeof options === 'function') {
 			return assign({}, props, options(props, context));
 		}
