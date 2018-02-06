@@ -44,7 +44,7 @@ export default function graphql(document, operationOptions) {
 
 	const mapPropsToOptions = props => {
 		if (typeof options === 'function') {
-			return assign({}, props, options(props));
+			return assign({}, props, options(props, context));
 		}
 
 		return assign({}, props, options);
@@ -146,7 +146,7 @@ export default function graphql(document, operationOptions) {
 			}
 
 			calculateOptions(props = this.props, newOpts) {
-				let opts = mapPropsToOptions(props);
+				let opts = mapPropsToOptions(props, this.context);
 
 				if (newOpts && newOpts.variables) {
 					newOpts.variables = assign(
