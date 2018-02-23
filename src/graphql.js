@@ -100,9 +100,8 @@ export default function graphql(document, operationOptions) {
 				if (this.type === DocumentType.Mutation) {
 					return;
 				}
-				this.unsubscribeFromQuery();
 				this.updateQuery(props);
-				this.subscribeToQuery();
+				this.resubscribeToQuery();
 			}
 
 			disposed() {
