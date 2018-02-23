@@ -203,7 +203,9 @@ export default function graphql(document, operationOptions) {
 					ownProps: this.props,
 				};
 
-				if (mapResultToProps) return mapResultToProps(newResult);
+				if (mapResultToProps) {
+					return mapResultToProps(newResult, this.context);
+				}
 
 				return {[name]: defaultMapResultToProps(result)};
 			}
