@@ -350,12 +350,6 @@ export default function graphql(document, operationOptions) {
 				}
 				const {lastError, lastResult} = this.queryObservable;
 
-				// If lastError is set, the observable will immediately
-				// send it, causing the stream to terminate on initialization.
-				// We clear everything here and restore it afterward to
-				// make sure the new subscription sticks.
-
-				this.queryObservable.resetLastResults();
 				this.subscribeToQuery();
 				Object.assign(this.queryObservable, {lastError, lastResult});
 				if (lastSubscription) {
