@@ -346,13 +346,15 @@ export default function graphql(document, operationOptions) {
 				const lastSubscription = this.querySubscription;
 
 				if (lastSubscription) {
-					lastSubscription.unsubscribe();
 					delete this.querySubscription;
 				}
 				const {lastError, lastResult} = this.queryObservable;
 
 				this.subscribeToQuery();
 				Object.assign(this.queryObservable, {lastError, lastResult});
+				if (lastSubscription) {
+					lastSubscription.unsubscribe();
+				}
 			}
 
 			shouldSkip(props = this.props) {
