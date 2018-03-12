@@ -320,7 +320,7 @@ export default function graphql(document, operationOptions) {
 				};
 
 				const handleError = error => {
-					this.resubscribeToQuery();
+					// this.resubscribeToQuery();
 					// Quick fix for https://github.com/apollostack/react-apollo/issues/378
 
 					if (error.hasOwnProperty('graphQLErrors')) {
