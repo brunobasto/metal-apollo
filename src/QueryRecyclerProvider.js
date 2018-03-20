@@ -8,7 +8,10 @@ class QueryRecyclerProvider extends Component {
 	}
 
 	willReceiveProps(nextProps) {
-		if (this.context.client !== nextProps.client.newVal) {
+		if (
+			nextProps.client &&
+			this.context.client !== nextProps.client.newVal
+		) {
 			this.recyclers = new WeakMap();
 		}
 	}
