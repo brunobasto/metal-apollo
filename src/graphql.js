@@ -478,7 +478,11 @@ export default function graphql(document, operationOptions) {
 
 			render() {
 				if (this.shouldSkip()) {
-					return <WrappedComponent {...this.props} />;
+					return (
+						<WrappedComponent {...this.props}>
+							{this.props.children}
+						</WrappedComponent>
+					);
 				}
 
 				this.maybeCreateQuery();
@@ -489,7 +493,11 @@ export default function graphql(document, operationOptions) {
 				const clientProps = this.calculateResultProps(data);
 				const mergedPropsAndData = assign({}, props, clientProps);
 
-				return <WrappedComponent {...mergedPropsAndData} />;
+				return (
+					<WrappedComponent {...mergedPropsAndData}>
+						{this.props.children}
+					</WrappedComponent>
+				);
 			}
 		}
 
