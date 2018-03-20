@@ -494,7 +494,6 @@ export default function graphql(document, operationOptions) {
 					...props,
 					...clientProps,
 					elementClasses: undefined,
-					events: undefined,
 					visible: undefined,
 				};
 
