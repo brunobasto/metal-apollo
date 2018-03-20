@@ -488,10 +488,15 @@ export default function graphql(document, operationOptions) {
 				this.maybeCreateQuery();
 
 				const {props} = this;
-
 				const data = this.dataForChild();
 				const clientProps = this.calculateResultProps(data);
-				const mergedPropsAndData = assign({}, props, clientProps);
+				const mergedPropsAndData = {
+					...props,
+					...clientProps,
+					elementClasses: undefined,
+					events: undefined,
+					visible: undefined,
+				};
 
 				return (
 					<WrappedComponent {...mergedPropsAndData}>
