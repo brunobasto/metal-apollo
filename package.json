@@ -1,6 +1,6 @@
 {
   "name": "metal-apollo",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Metal data container for Apollo Client",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
